@@ -1,0 +1,30 @@
+## macadmins/munki container
+image: "macadmins/munki"
+imageTag: "latest"
+
+# SSH Password
+munki_repo_sshfs_pass: '+S@hvJ7W7GN9buC1'
+
+# SSH authorized password
+munki_repo_sshfs_authorized_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1h8tqAkCtMRuZGua9XeeA+1EqVzDSFArcamb20DVDcmyeGuP35lxEf6ZaWDLYihGdWRWKzjgDCPG8/VKYzV8trtybeIaoBSJGjKJNL4hSyf53WWhe6IvknmxDeHVNbHe7dKsqoC1ZGzkjj/PCBjsNbjhg8DM6qrwoS7sUz71tlUVYzrnl6IXSkYYGwZKEK52Fd3mMKf+2YmrbTrP71gx7WYKi3MrJXHuLyDn5YmL4nzfcEJtO35/vMYzqHDz4kLaIMEPqr8f9llsgJ3vrrzcw+Kog3NrnZV+ghjH9DN8sJdtywOWRLucco/ZTgoCDTuLNLbVvXQgiGfDsN70zpoy3
+
+imagePullPolicy: "IfNotPresent"
+# imagePullSecrets: myregistrykey
+
+## A manually managed Persistent Volume and Claim
+## Requires persistence.enabled: true
+## If defined, PVC must be created manually before volume will be bound
+## existingClaim:
+
+## Munki Packages Persistent Volume Storage Class
+## If defined, storageClassName: <storageClass>
+## If set to "-", storageClassName: "", which disables dynamic provisioning
+## If undefined (the default) or set to null, no storageClassName spec is
+##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+##   GKE, AWS & OpenStack)
+##
+storageClass: "-"
+accessModes: ReadWriteOnce
+size: 8Gi
+subPath: packages
+mountPath: /munki_repo

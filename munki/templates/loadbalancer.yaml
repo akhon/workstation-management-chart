@@ -1,0 +1,50 @@
+---
+# Expose the package repository over https via an nGinx webserver:
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    dns.alpha.kubernetes.io/external: wksmgmt-repo.apps.verygood.systems
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:582054058224:certificate/3ac93fd4-ea41-4d19-90a7-521740d26a5a
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: '443'
+  labels:
+    app: macadmins-munki-web
+  name: munki-repo-service
+  namespace: wksmgmt
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+    - name: macadmins-munki-web-https
+      nodePort: 30920
+      port: 443
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: macadmins-munki-web
+  sessionAffinity: None
+  type: LoadBalancer
+---
+# Expose the root of the package repository over SSH so we can mount remotely as a disk
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    dns.alpha.kubernetes.io/external: wksmgmt-sshfs.apps.verygood.systems
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+  labels:
+    app: macadmins-munki-web
+  name: munki-sshfs-service
+  namespace: wksmgmt
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+    - nodePort: 31033
+      port: 2022
+      protocol: TCP
+      targetPort: 22
+  selector:
+    app: macadmins-munki-web
+  sessionAffinity: None
+  type: LoadBalancer
+---

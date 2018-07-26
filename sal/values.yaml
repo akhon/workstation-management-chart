@@ -1,0 +1,25 @@
+## SAL Reporting properties
+image: "macadmins/sal"
+imageTag: "latest"
+servicePort: 8000
+serviceNodePort:
+serviceExternalIPs:
+serviceType: ClusterIP
+name: "sal"
+DOCKER_SAL_TZ: 'America/Los_Angeles'
+DOCKER_SAL_LANG: 'en_US'
+DOCKER_SAL_DISPLAY_NAME: 'VGS Workstation Management - PROD'
+DOCKER_SAL_DEBUG: 'false'
+DB_NAME: 'saldb'
+DB_USER: 'saldbuser'
+DB_PASS: '+S@hvJ7W7GN9buC1' 
+ADMIN_PASS: '+S@hvJ7W7GN9buC1'
+dnsHostName: 'wksmgmt.apps.verygood.systems'
+
+# PostGres database properties
+sal_db_name: saldb
+sal_db_user: saldbuser
+sal_db_pass: '+S@hvJ7W7GN9buC1'
+sal_db_address: sal-postgresql.wksmgmt
+sal_db_port: 5432
+sal_admin_pass: '+S@hvJ7W7GN9buC1'

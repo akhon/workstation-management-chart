@@ -1,0 +1,27 @@
+---
+# Expose the SalOpensource Mac management Dashboard
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: macadmins-sal
+  name: sal-ext-service
+  namespace: wksmgmt
+  annotations:
+    dns.alpha.kubernetes.io/external: wksmgmt.apps.verygood.systems
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:582054058224:certificate/3ac93fd4-ea41-4d19-90a7-521740d26a5a
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: '443'
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+    - name: macadmins-sal-https
+      nodePort: 30919
+      port: 443
+      protocol: TCP
+      targetPort: 8000
+  selector:
+    app: macadmins-sal
+  sessionAffinity: None
+  type: LoadBalancer
+---
