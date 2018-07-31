@@ -12,7 +12,7 @@ Munki is currently in use at organizations all over the world, managing software
 ## TL;DR;
 
 ```console
-$ helm install munki
+$ helm install --namespace wksmgmt --name munki munki
 ```
 
 ## Introduction
