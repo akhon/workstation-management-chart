@@ -11,11 +11,11 @@ This is a solution for macOS based workstation/laptop fleet configuration and pa
 $ helm install --namespace wksmgmt --name sal-postgresql \
   --set postgresUser=saldbuser,postgresPassword=someAwesomePassword,postgresDatabase=saldb postgresq
 ```
-1. install MUNKI chart + Configure the default site and repository    
+2. install MUNKI chart + Configure the default site and repository    
 ```bash
 $ helm install --namespace wksmgmt --name munki munki
 ```
-1. install SAL chart   
+3. install SAL chart   
 ```bash
 $ helm install --namespace wksmgmt --name sal sal
 ```
