@@ -7,8 +7,18 @@ This is a solution for macOS based workstation/laptop fleet configuration and pa
 #### Installation      
 (must be done in this order)
 1. install the PostgreSQL chart   
+```bash
+$ helm install --namespace wksmgmt --name sal-postgresql \
+  --set postgresUser=saldbuser,postgresPassword=someAwesomePassword,postgresDatabase=saldb postgresq
+```
 1. install MUNKI chart + Configure the default site and repository    
+```bash
+$ helm install --namespace wksmgmt --name munki munki
+```
 1. install SAL chart   
+```bash
+$ helm install --namespace wksmgmt --name sal sal
+```
 
 The design is based on the guidance provided by MacAdmins [macadmins.psu.edu](http://macadmins.psu.edu/)      
 and Google MacOps teams: [google/macops](https://github.com/google/macops)       
