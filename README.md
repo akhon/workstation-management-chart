@@ -15,6 +15,9 @@ $ helm install --namespace wksmgmt --name sal-postgresql \
 ```bash
 $ helm install --namespace wksmgmt --name munki munki
 ```
+Basic Munki Package Repository Configuration:     
+[Munki Setup](https://github.com/munki/munki/wiki/Demonstration-Setup)    
+
 3. install SAL chart   
 ```bash
 $ helm install --namespace wksmgmt --name sal sal
