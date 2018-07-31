@@ -6,10 +6,9 @@ This is a solution for macOS based workstation/laptop fleet configuration and pa
 
 #### Installation      
 (must be done in this order)
-1. install PostGres   
-2. install munki chart + Configure the default site and repository    
-3. install SAL chart   
-
+1. install the PostgreSQL chart   
+1. install MUNKI chart + Configure the default site and repository    
+1. install SAL chart   
 
 The design is based on the guidance provided by MacAdmins [macadmins.psu.edu](http://macadmins.psu.edu/)      
 and Google MacOps teams: [google/macops](https://github.com/google/macops)       
