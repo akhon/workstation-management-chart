@@ -11,7 +11,7 @@ Sal also features powerful search capabilities and application inventory and sup
 ## TL;DR;
 
 ```console
-$ helm install sal
+$ helm install --namespace wksmgmt --name sal sal
 ```
 
 ## Prerequisites
