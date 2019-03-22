@@ -9,7 +9,7 @@ This is a solution for macOS based workstation/laptop fleet configuration and pa
 1. install the PostgreSQL chart   
 ```bash
 $ helm install --namespace wksmgmt --name sal-postgresql \
-  --set postgresUser=saldbuser,postgresPassword=someAwesomePassword,postgresDatabase=saldb postgresq
+  --set postgresUser=saldbuser,postgresPassword=someAwesomePassword,postgresDatabase=saldb postgresql
 ```
 2. install MUNKI chart + Configure the default site and repository    
 ```bash
